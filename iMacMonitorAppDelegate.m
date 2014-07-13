@@ -59,6 +59,13 @@
 	
 }
 
+- (void)sleepDisplay
+{
+	const char* cmd="/usr/bin/pmset displaysleepnow";
+
+	system(cmd);
+}
+
 - (void)sleepComputer {
 	NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"System Events\" to sleep"];
 	NSDictionary *errorInfo;
@@ -94,7 +101,7 @@
 		macConnected=FALSE;
 		
 		if (delay==DELAY_INTERVAL) {
-			[self sleepComputer];
+			// [self sleepDisplay];
 		}
 		
 		if (delay>DELAY_INTERVAL) {
